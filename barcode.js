@@ -390,10 +390,6 @@ var barcode = function() {
 
 }();
 
-    $('select#videoSource').change(function() {
-    	barcode.init();
-    	console.log('got here');
-    });
 
 /*setTimeout(function() {
 	barcode.init()

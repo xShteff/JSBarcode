@@ -40,6 +40,14 @@ $(document).ready(function() {
 </div>
 <canvas id="barcodecanvas" ></canvas>
 <div id="result"></div>
-
+<script>
+	$(document).ready(function() {
+		$('select#videoSource').change(function() {
+	    	barcode.init();
+	    	console.log('got here');
+	    });
+	    console.log('ready!');
+	});
+</script>
 </body>
 </html>
