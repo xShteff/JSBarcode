@@ -9,7 +9,7 @@ var barcode = function() {
 	    option.value = deviceInfo.deviceId;
 	    if (deviceInfo.kind === 'videoinput') {
 	      option.text = deviceInfo.label || 'camera ' + (videoSelect.length + 1);
-	      videoSelect.appendChild(option);
+	      $('select#videoSource').append(option);
 	    } else {
 	      console.log('Some other kind of source/device: ', deviceInfo);
 	    }
