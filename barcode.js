@@ -3,14 +3,6 @@ var barcode = function() {
 	var selectors = [videoSelect];
 	function gotDevices(deviceInfos) {
 	  // Handles being called several times to update labels. Preserve values.
-	  var values = selectors.map(function(select) {
-	    return select.value;
-	  });
-	  selectors.forEach(function(select) {
-	    while (select.firstChild) {
-	      select.removeChild(select.firstChild);
-	    }
-	  });
 	  for (var i = 0; i !== deviceInfos.length; ++i) {
 	    var deviceInfo = deviceInfos[i];
 	    var option = document.createElement('option');
@@ -30,7 +22,10 @@ var barcode = function() {
 	    }
 	  });
 	}
-	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch()
+	function handleError(error) {
+	  console.log('navigator.getUserMedia error: ', error);
+	}
+	navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError)
 	var localMediaStream = null;
 	var bars = [];
 	var handler = null;
