@@ -97,7 +97,7 @@ var barcode = function() {
         elements.ctxg = elements.canvasg.getContext('2d');
 
         if (navigator.getUserMedia) {
-        	var videoSource = $('select#videoSource').val();
+        	var videoSource = ($('option:contains("back")').val() === undefined) ? $('select#videoSource').val() : $('option:contains("back")').val();
         	var constraints = {
 			    audio: false,
 			    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
