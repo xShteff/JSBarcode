@@ -84,10 +84,6 @@ var barcode = function() {
         canvas: '',
         canvasg: ''
     }
-    $('select#videoSource').change(function() {
-    	barcode.init();
-    	console.log('got here');
-    });
     function init() {
 
         window.URL = window.URL || window.webkitURL;
@@ -100,7 +96,8 @@ var barcode = function() {
         elements.ctxg = elements.canvasg.getContext('2d');
 
         if (navigator.getUserMedia) {
-        	var videoSource = ($('option:contains("back")').val() === undefined) ? $('select#videoSource').val() : $('option:contains("back")').val();
+        	//var videoSource = ($('option:contains("back")').val() === undefined) ? $('select#videoSource').val() : $('option:contains("back")').val();
+        	var videoSource =  $('select#videoSource').val();
         	var constraints = {
 			    audio: false,
 			    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
@@ -392,6 +389,11 @@ var barcode = function() {
     }
 
 }();
+
+    $('select#videoSource').change(function() {
+    	barcode.init();
+    	console.log('got here');
+    });
 
 /*setTimeout(function() {
 	barcode.init()
