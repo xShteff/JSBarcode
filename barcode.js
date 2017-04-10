@@ -84,7 +84,10 @@ var barcode = function() {
         canvas: '',
         canvasg: ''
     }
-    $('select#videoSource').change(init);
+    $('select#videoSource').change(function() {
+    	barcode.init();
+    	console.log('got here');
+    });
     function init() {
 
         window.URL = window.URL || window.webkitURL;
@@ -389,3 +392,7 @@ var barcode = function() {
     }
 
 }();
+
+/*setTimeout(function() {
+	barcode.init()
+}, 5000);*/
