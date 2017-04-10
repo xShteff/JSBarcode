@@ -31,9 +31,11 @@ $(document).ready(function() {
 
 </head>
 <body>
-
+<div class="select">
+    <label for="videoSource">Video source: </label><select id="videoSource"></select>
+ </div>
 <div id="barcode">
-	<video id="barcodevideo" autoplay></video>
+	<video id="barcodevideo" autoplay style="width:100%"></video>
 	<canvas id="barcodecanvasg" ></canvas>
 </div>
 <canvas id="barcodecanvas" ></canvas>
